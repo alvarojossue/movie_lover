@@ -1,0 +1,13 @@
+<h1>Alvaro's awesome movie quiz</h1>
+<h2>Your word is <%=@word%></h2>
+<h3>Which movie was released in <%= @correct_answer%>?</h3>
+
+	<% @results.each do |item| %>
+		<img src="<%= item.poster %>" width="200" height="300">
+		 	<form action="/check_answer" method="post">
+					<input type="hidden" name="answer_input" value="<%= item.year.to_i %>">
+					<input type="hidden" name="correct_answer" value="<%=  @correct_answer %>">
+				<button type="submit">My answer</button>
+			</form>
+	<% end %>
+	<h3><a href="/">Go back to Home</a></h3>
